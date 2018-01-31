@@ -100,7 +100,7 @@
   "*Keyword regexp optionally found before a class keyword.")
 
 (defconst mdc-class-keyword
-  "\\(block\\|c\\(lass\\|onnector\\)\\|function\\|model\\|package\\|record\\|type\\)[ \t\n\r]+"
+  "\\(block\\|c\\(lass\\|onnector\\)\\|function\\|model\\|package\\|record\\|uniontype\\|type\\)[ \t\n\r]+"
   "*Keyword regexp preceding a Modelica class declaration or definition.")
 
 ;;; Interface to font-lock
@@ -145,7 +145,7 @@
 		       "f\\(inal\\|low\\|unction\\)\\|in\\(ner\\|put\\)\\|"
 		       "model\\|out\\(er\\|put\\)\\|pa\\(ckage\\|r\\(ameter\\|"
 		       "tial\\(\\)?\\)\\)\\|re\\(cord\\|declare\\|"
-		       "placeable\\)\\|type\\)"
+		       "placeable\\)\\|type\\|uniontype\\)"
 		       "\\>")
 	       0 'font-lock-type-face)
 	 (list (concat "\\<"
@@ -752,7 +752,7 @@
 		 ;  "record" "type" "when" "while")
 		 "\\(block\\|c\\(lass\\|onnector\\)\\|end\\|"
 		 "f\\(or\\|unction\\)\\|if\\|model\\|package\\|"
-		 "record\\|type\\|wh\\(en\\|ile\\)\\)"
+		 "record\\|type\\|uniontype\\wh\\(en\\|ile\\)\\)"
 		 "\\>"))
 	       (or (mdc-within-comment t)
 		   (mdc-short-class-definition)
