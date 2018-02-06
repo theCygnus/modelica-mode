@@ -431,7 +431,9 @@
 
 (defun mdc-indent-line ()
   "Indentation for Modelica."
+
   (let ((pos (- (point-max) (point))) beg beg-anno end-anno)
+    (message "Indenting `%s'..." (buffer-name))
     (beginning-of-line)
     (setq beg (point))
     ;; no indentation of invisible text (hidden annotations)
@@ -480,7 +482,7 @@
 	(current-column))
        ;; continued single-line comment
        ((and (looking-at "//")
-	     (forward-comment -1)
+             (forward-comment -1)
 	     (looking-at "//"))
 	(current-column))
        ;; default looks for last unended begin-like statement
@@ -490,10 +492,11 @@
 	;; goto left for labels, end's etc.
 	(if (looking-at
 	     (concat
-	      ; ("algorithm" "elseif" "elsewhen" "end" "equation" "external"
-	      ;  "in" "loop" "protected" "public")
-	      "\\(algorithm\\|e\\(lse\\(if\\|when\\)\\|nd\\|quation\\|"
-	      "xternal\\)\\|in\\|loop\\|p\\(rotected\\|ublic\\)\\)"
+	      ; ("elseif" "elsewhen" "end" "equation" "external"
+          ;;  "in" "loop")
+          ;; Removed protected and public, strange idention occurs..
+	      "\\(e\\(lse\\(if\\|when\\)\\|nd\\|quation\\|"
+	      "xternal\\)\\|in\\|loop\\|\\)"
 	      "\\>"))
 	    (setq offset (- offset mdc-basic-offset)))
 	(if (and
@@ -748,10 +751,10 @@
 		(concat
 		 "\\<"
 		 ; ("block" "class" "connector" "end"
-		 ;  "for" "function" "if" "model" "package"
+		 ;  "for" "function" "if" "model"
 		 ;  "record" "type" "when" "while")
 		 "\\(block\\|c\\(lass\\|onnector\\)\\|end\\|"
-		 "f\\(or\\|unction\\)\\|if\\|model\\|package\\|"
+		 "f\\(or\\|unction\\)\\|if\\|model\\|"
 		 "record\\|type\\|uniontype\\wh\\(en\\|ile\\)\\)"
 		 "\\>"))
 	       (or (mdc-within-comment t)
