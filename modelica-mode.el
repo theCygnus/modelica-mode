@@ -113,40 +113,26 @@
   (setq mdc-font-lock-keywords
 	(list
 	 (list (concat "\\<"
-		       "\\(do\\|"
-		       "\\(end[ \t\n]+\\(if\\|for\\|wh\\(en\\|ile\\)\\)\\)\\|"
-		       ; (regexp-opt
-		       ; '("import" "within" "extends"
-		       ;   "for" "while" "in" "loop" "when"
-		       ;   "if" "then" "else" "elseif" "elsewhen"
-		       ;   "and" "not" "or"))
-		       "and\\|e\\(lse\\(if\\|when\\)?\\|xtends\\)\\|for\\|"
-		       "i\\(mport\\|[fn]\\)\\|loop\\|not\\|or\\|then\\|"
-		       "w\\(h\\(en\\|ile\\)\\|ithin\\)"
-		       "\\)\\>")
+		       (regexp-opt
+		       '("import" "within" "extends"
+		         "for" "while" "in" "loop" "when"
+		         "if" "then" "else" "elseif" "elsewhen"
+		         "and" "not" "or" "case"))"\\>") 
 	       0 'font-lock-keyword-face)
 	 (list (concat "\\<"
-		       ;(regexp-opt
-		       ; '("algorithm" "equation" "public" "protected") t)
-		       "\\(algorithm\\|equation\\|p\\(rotected\\|ublic\\)\\)"
+		       (regexp-opt
+		       '("algorithm" "equation" "public" "protected" "match" "matchcontinue") t)
 		       "\\>")
 	       0 'font-lock-keyword-face)
 	 (list (concat "\\<"
-		       ;(regexp-opt
-		       ; '("redeclare" "final" "partial" "replaceable"
-		       ;   "inner" "outer" "encapsulated"
-		       ;   "discrete" "parameter" "constant"
-		       ;   "flow" "input" "output" "external"
-		       ;   "block" "class" "connector" "function" "model"
-		       ;   "package" "record" "type"
-		       ;   "end") t)
-		       "\\(block\\|c\\(lass\\|on\\(nector\\|stant\\)\\)\\|"
-		       "discrete\\|e\\(n\\(capsulated\\|d\\)\\|xternal\\)\\|"
-		       "f\\(inal\\|low\\|unction\\)\\|in\\(ner\\|put\\)\\|"
-		       "model\\|out\\(er\\|put\\)\\|pa\\(ckage\\|r\\(ameter\\|"
-		       "tial\\(\\)?\\)\\)\\|re\\(cord\\|declare\\|"
-		       "placeable\\)\\|type\\|uniontype\\)"
-		       "\\>")
+		       (regexp-opt
+		       '("redeclare" "final" "partial" "replaceable"
+		         "inner" "outer" "encapsulated"
+		         "discrete" "parameter" "constant"
+		         "flow" "input" "output" "external"
+		         "block" "class" "connector" "function" "model"
+		         "package" "record" "type"
+		         "end" "uniontype") t) "\\>")
 	       0 'font-lock-type-face)
 	 (list (concat "\\<"
 		       ;(regexp-opt
